@@ -1,3 +1,6 @@
+// Tc : O(m*n)
+// SC : O(1)
+
 class Solution {
     public void setZeroes(int[][] matrix) {
         // Get the number of rows and columns in the matrix.
