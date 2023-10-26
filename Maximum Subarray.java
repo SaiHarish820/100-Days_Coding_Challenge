@@ -1,3 +1,5 @@
+// kadane's algorithm
+// Tc : O(n) & SC : O(1)
 class Solution {
     public int maxSubArray(int[] nums) {
         int cs=0;
