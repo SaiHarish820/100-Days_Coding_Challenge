@@ -1,5 +1,5 @@
-// Tc : O(m*n)
-// SC : O(1)
+// Tc : O(2*m*n)
+// SC : O(m*n)
 
 class Solution {
     public void setZeroes(int[][] matrix) {
@@ -30,5 +30,51 @@ class Solution {
                 }
             }
         }
+    }
+}
+
+
+
+
+
+
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        // TC : (2*n*m) & SC : O(1) 
+        int m = matrix.length , n = matrix[0].length;
+        // int col[m] = {0} -> matrix[0][..]
+        // int row[n] = {0} -> matrix[..][0]
+        int col0 = 1;
+       for(int i = 0 ; i < m ; i++){
+            for(int j = 0 ; j < n ; j++){
+                if(matrix[i][j] == 0){
+                // mark the ith row
+                   matrix[i][0] = 0;
+                // matrix the jth col
+                   if(j != 0)
+                        matrix[0][j] = 0;
+                    else
+                        col0 = 0;
+                }
+            }
+        }
+        for(int i = 1 ; i < m ; i++){
+            for(int j = 1 ; j < n ; j++){
+               if( matrix[i][j] != 0){
+                   // check for col and row
+                   if( matrix[i][0] == 0 || matrix[0][j] == 0)  matrix[i][j] = 0;
+               }
+            }
+        }
+        if(matrix[0][0] == 0){
+            for(int i = 0 ; i < n ; i++){
+                matrix[0][i] = 0;
+            }
+        }
+        if(col0 == 0){
+            for(int i = 0 ; i < m ; i++){
+                matrix[i][0] = 0;
+            }
+        } 
     }
 }
