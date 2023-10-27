@@ -1,5 +1,6 @@
 class Solution {
     // TC : O(n)  & SC : O(1)
+    
     public int findMaxConsecutiveOnes(int[] nums) 
     {
         int count=0;
