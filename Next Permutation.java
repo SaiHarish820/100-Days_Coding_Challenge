@@ -1,5 +1,6 @@
 class Solution {
     public void nextPermutation(int[] nums) {
+        // TC: O(3N) & SC: O(1)
 
         int index1 = -1;
         int index2 = -1;
