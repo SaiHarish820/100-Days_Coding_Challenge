@@ -15,3 +15,33 @@ class Solution {
         return (int) (res % (1000000007));       
     }
 }
+
+
+// Approach Two
+
+class Solution {
+    public int countHomogenous(String s) {
+        int res = 0, track = 0;
+
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (s.charAt(i) == s.charAt(i + 1)) {
+                track++;
+            } else {
+                track++;
+                while (track > 0) {
+                    res = (int) ((res + track) % (1000000007));
+                    track--;
+                }
+            }
+        }
+
+        // Handle the last character(s) if needed
+        track++;
+        while (track > 0) {
+            res = (int) ((res + track) % (1000000007));
+            track--;
+        }
+
+        return res;
+    }
+}
